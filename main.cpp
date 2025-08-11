@@ -1,33 +1,26 @@
 #include <iostream>
 #include <string>
-using namespace std; 
+using namespace std;
+
 int main() {
-string Phrs;
-string MAJ= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-string min="abcdefghijklmnopqrstuvwxyz";
-int i, j;
+    string verbe;
+    int T1, T2;
 
-    cout << "Veuillez inserer une chaine en CamelCase!" << endl;  
-    getline(cin, Phrs);  
+    cout << "Inserez un Verbe svp!" << endl;
+    getline(cin, verbe);
 
-cout << "La chaine est devenu : "<<endl;  
+    T1 = verbe.length() - 2;
+    T2 = verbe.length() - 1;
 
-//Pour le premier caractère 
-if (Phrs.length() > 0) {  
-    cout << Phrs[0];  
-}  
+    if (verbe[T1] == 'e' && verbe[T2] == 'r' && verbe != "aller") {
+        cout << "Le verbe inseré appartient au premier groupe." << endl;
+    }
+    else if (verbe[T1] == 'i' && verbe[T2] == 'r') {
+        cout << "Le verbe inseré appartient au deuxieme groupe." << endl;
+    }
+    else {
+        cout << "Le verbe inseré appartient au troisieme groupe." << endl;
+    }
 
-//Pour les autres caractères en majuscules
-for (i = 1; i < Phrs.length(); i++) {  
-    for (j = 0; j< MAJ.length(); j++) {  
-        if (Phrs[i] == MAJ[j]) {  
-            cout << " ";  
-            break;
-        }  
-    }  
-    cout << Phrs[i];  
-}  
-
-cout << endl;  
-return 0;
+    return 0;
 }
